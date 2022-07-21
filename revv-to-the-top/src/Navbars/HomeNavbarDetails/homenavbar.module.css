@@ -5,3 +5,8 @@
     cursor: pointer;
     color: rgb(0, 174, 174);
 }
+#modall{
+    border: 1px solid red;
+    position: absolute;
+    z-index: 999999;
+}

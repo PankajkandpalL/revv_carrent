@@ -14,27 +14,44 @@ import { useContext } from "react";
 import { mainContext } from "../../Context/MainContext";
 import { ViewIcon, ViewOffIcon,ChevronDownIcon } from '@chakra-ui/icons'
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
+import { Icon } from "../../Component/ForHome/icon";
 
 function HomeNavbar(){
 
-    let { toggleForm,handleToggleForm,showPass,handleShowPass,handleSignUpInput,postSignUpData,loading,handleLogInInput,checkLogInData,logInData,logInUsername,forUserName } = useContext(mainContext)
+    let { styleBool,city,toggleForm,handleToggleForm,showPass,handleShowPass,handleSignUpInput,postSignUpData,loading,handleLogInInput,checkLogInData,logInData,logInUsername,forUserName } = useContext(mainContext)
     const { isOpen, onOpen, onClose } = useDisclosure()
 
 
-
     return (
-        <Box boxShadow="sm" height={"60px"} px="190px" >   
+        <>
+        <Box position={"fixed"} boxShadow="xs" bg="white" w="100%" zIndex={"9999"} height={"60px"} px="190px" >   
             <Box  h="100%" display={"flex"} justifyContent={"space-between"} alignItems="center" >
                 <Box position={"relative"} height={"100%"} w="130px" >
                     <Image src="https://www.revv.co.in/grapheneImages/newopen/logo.svg" marginTop={"5px"} />
                     <Heading position={"absolute"} fontSize="12px" top={"40px"} left="25px" >Sanitised. Safe</Heading>
                 </Box>
-                <Box height={"100%"} display="flex" alignItems={"center"} w="680px" gap="40px">
+                <Box height={"100%"} display="flex" alignItems={"center"} w={styleBool ? "680px" : "1050px" } gap="40px">
                    <Button variant="outline" ><Image src="https://www.revv.co.in/imgs/hyundai_logo.svg" cursor="pointer" ></Image></Button>
                    <Button variant="outline" ><Image src="https://www.revv.co.in/imgs/mahindra_logo.svg" cursor="pointer" ></Image></Button>
-                   <Box id={styles.faqdiv} fontFamily={"Poppins"} px="10px" >
+                   {
+                    styleBool
+                    ?
+                    <Box id={styles.faqdiv} fontFamily={"Poppins"} px="10px" >
                     FAQs
                     </Box>
+                    :
+                    <>
+                        <Box as="p" id={styles.faqdiv} fontSize="16px" fontWeight={"bold"} fontFamily="sans-serif" px="10px" >
+                            How it works
+                        </Box>
+                        <Box as="p" id={styles.faqdiv} fontSize="16px" fontWeight={"bold"} fontFamily="sans-serif"  px="10px" >
+                           Subscribe vs Buy
+                        </Box>
+                        <Box id={styles.faqdiv} fontFamily={"Poppins"} px="10px" >
+                            FAQs
+                        </Box>
+                    </>
+                   }
                     {
                         !forUserName
                         ?
@@ -153,6 +170,12 @@ function HomeNavbar(){
                 </Box>
             </Box>
         </Box>
+        <Box h="100px" w="100%" bg="white" marginTop={"45px"} position="fixed" p="5px" boxShadow={"md"} >
+            <Box border="1px" w="70%" height={"70px"} margin="auto" marginTop={"20px"} >
+                 <Button h="50px" borderRadius={"18px"} fontSize="25px" py="30px" w="398px" colorScheme='black' variant="outline" leftIcon={<Icon/>} >{city}</Button>
+            </Box>
+        </Box>
+        </>
     )
 }
 
