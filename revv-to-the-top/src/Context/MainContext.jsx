@@ -97,6 +97,8 @@ function MainContextApi({children}){
         "https://i.postimg.cc/rFD31065/s7.png",
     ] 
 
+    let buttons = ["Mumbai", "Hydrabad", "Bangalore", "Delhi-NCR", "Chennai", "Pune"]
+
 
     let handleToggleForm = () =>{
         setToggleForm(!toggleForm)
@@ -267,7 +269,7 @@ function MainContextApi({children}){
         Subref.current.scrollLeft+=value
     }
 
-    return (<mainContext.Provider value = {{handleSlide6,SubImages,Subref,fref,handleSlide3,feedbackUrl,featuredImages,sanitized,revvImages,refff,handleSlide2,handleSlide1,reff,handleSlide,ref,handleCity,city,secondSlideImages,handleStyleBool,styleBool,showSlideForm,slideImages,logInUsername,forUserName,checkLogInData,logInData,handleLogInInput,loading,postSignUpData,handleSignUpInput,showPass,handleShowPass,toggleForm,handleToggleForm}}>{children}</mainContext.Provider>)
+    return (<mainContext.Provider value = {{handleSlide6,buttons,SubImages,Subref,fref,handleSlide3,feedbackUrl,featuredImages,sanitized,revvImages,refff,handleSlide2,handleSlide1,reff,handleSlide,ref,handleCity,city,secondSlideImages,handleStyleBool,styleBool,showSlideForm,slideImages,logInUsername,forUserName,checkLogInData,logInData,handleLogInInput,loading,postSignUpData,handleSignUpInput,showPass,handleShowPass,toggleForm,handleToggleForm}}>{children}</mainContext.Provider>)
 }
 
 export {MainContextApi}

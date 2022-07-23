@@ -15,9 +15,11 @@ import { mainContext } from "../../Context/MainContext";
 import { ViewIcon, ViewOffIcon,ChevronDownIcon } from '@chakra-ui/icons'
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 import { Icon } from "../../Component/ForHome/icon";
+import { useNavigate } from "react-router-dom";
 
 function HomeNavbar(){
 
+    let navigates = useNavigate()
     let { styleBool,city,toggleForm,handleToggleForm,showPass,handleShowPass,handleSignUpInput,postSignUpData,loading,handleLogInInput,checkLogInData,logInData,logInUsername,forUserName } = useContext(mainContext)
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -44,7 +46,7 @@ function HomeNavbar(){
                         <Box as="p" id={styles.faqdiv} fontSize="16px" fontWeight={"bold"} fontFamily="sans-serif" px="10px" >
                             How it works
                         </Box>
-                        <Box as="p" id={styles.faqdiv} fontSize="16px" fontWeight={"bold"} fontFamily="sans-serif"  px="10px" >
+                        <Box onClick={()=>navigates("/subscribe")} as="p" id={styles.faqdiv} fontSize="16px" fontWeight={"bold"} fontFamily="sans-serif"  px="10px" >
                            Subscribe vs Buy
                         </Box>
                         <Box id={styles.faqdiv} fontFamily={"Poppins"} px="10px" >
