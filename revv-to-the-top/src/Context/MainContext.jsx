@@ -51,6 +51,8 @@ function MainContextApi({children}){
         },
       ])
       let [ city,setCity ] = useState("Hydrabad") 
+
+      let [ expand,setExpand ] = useState(false)
       
     let featuredImages = [
     "https://revvselfdrivecar.s3.us-west-2.amazonaws.com/offers/Banner-Flat+500+off+blue.png",
@@ -267,7 +269,11 @@ function MainContextApi({children}){
         Subref.current.scrollLeft+=value
     }
 
-    return (<mainContext.Provider value = {{handleSlide6,SubImages,Subref,fref,handleSlide3,feedbackUrl,featuredImages,sanitized,revvImages,refff,handleSlide2,handleSlide1,reff,handleSlide,ref,handleCity,city,secondSlideImages,handleStyleBool,styleBool,showSlideForm,slideImages,logInUsername,forUserName,checkLogInData,logInData,handleLogInInput,loading,postSignUpData,handleSignUpInput,showPass,handleShowPass,toggleForm,handleToggleForm}}>{children}</mainContext.Provider>)
+    let handleExpand = () =>{
+        setExpand(!expand)
+    }
+
+    return (<mainContext.Provider value = {{expand,handleExpand,handleSlide6,SubImages,Subref,fref,handleSlide3,feedbackUrl,featuredImages,sanitized,revvImages,refff,handleSlide2,handleSlide1,reff,handleSlide,ref,handleCity,city,secondSlideImages,handleStyleBool,styleBool,showSlideForm,slideImages,logInUsername,forUserName,checkLogInData,logInData,handleLogInInput,loading,postSignUpData,handleSignUpInput,showPass,handleShowPass,toggleForm,handleToggleForm}}>{children}</mainContext.Provider>)
 }
 
 export {MainContextApi}
