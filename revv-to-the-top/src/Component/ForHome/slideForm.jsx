@@ -29,11 +29,11 @@ const inActive = {
     cursor : "pointer"
 }
 
-let buttons = ["Mumbai", "Hydrabad", "Bangalore", "Delhi-NCR", "Chennai", "Pune"]
+
 
 function SlideForm(){
 
-    let { handleCity,city,showSlideForm,handleStyleBool,styleBool } = useContext(mainContext)
+    let { handleCity,city,showSlideForm,handleStyleBool,styleBool,buttons } = useContext(mainContext)
 
     const { isOpen, onOpen, onClose } = useDisclosure() 
 
